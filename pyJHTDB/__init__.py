@@ -66,8 +66,6 @@ else:
 auth_token = 'edu.jhu.pha.turbulence.testing-201406'
 homefolder = os.path.expanduser('~')
 lib_folder = os.path.join(homefolder, '.config/', 'JHTDB/')
-version_info = "20210108.0"
-version = str(version_info)
 
 # check if .config/JHTDB folder exists, create it if not
 #if os.path.isdir(lib_folder):
