@@ -41,28 +41,20 @@ the simplest example of how to access the turbulence database.
 
 """
 
+# Import version first, before any dependencies
+from ._version import __version__
+
+# Now import standard library modules
 import os
 import os.path
 import sys
-import numpy as np
-import ctypes
 import platform
 
-from pkg_resources import get_distribution, DistributionNotFound
+# Import third-party dependencies
+import numpy as np
+import ctypes
 
-try:
-    _dist = get_distribution('pyJHTDB')
-    # Normalize case for Windows systems
-    dist_loc = os.path.normcase(_dist.location)
-    here = os.path.normcase(__file__)
-    if not here.startswith(os.path.join(dist_loc, 'pyJHTDB')):
-        # not installed, but there is another version that *is*
-        raise DistributionNotFound
-except DistributionNotFound:
-    __version__ = 'Please install this project with setup.py'
-else:
-    __version__ = _dist.version
-
+# Rest of your initialization code
 auth_token = 'edu.jhu.pha.turbulence.testing-201406'
 homefolder = os.path.expanduser('~')
 lib_folder = os.path.join(homefolder, '.config/', 'JHTDB/')
@@ -100,7 +92,7 @@ except ImportError:
 
 from .libJHTDB import *
 from .test import test_plain
-if pyJHTDB.found_matplotlib:
+if found_matplotlib:  # Fixed: was pyJHTDB.found_matplotlib
     from .test import test_misc
 from .test import test_interp_1D as test_interpolator
 from .generic_splines import main0 as test_gs

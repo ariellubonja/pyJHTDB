@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyJHTDB"
+dynamic = ["version"]
+description = "Python wrapper for the Johns Hopkins turbulence database library"
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "Apache License 2.0"}
+authors = [
+    {name = "Johns Hopkins Turbulence Database Group", email = "turbulence@pha.jhu.edu"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "numpy>=1.15.0",
+    "scipy>=1.1.0",
+    "sympy>=1.2",
+    "h5py>=2.8.0",
+    "matplotlib>=3.0.0",
+    "wurlitzer>=2.0.2",
+]
+
+[project.urls]
+Homepage = "http://turbulence.pha.jhu.edu/"
+Download = "https://github.com/idies/pyJHTDB"
+
+[tool.setuptools]
+packages = ["pyJHTDB"]
+
+[tool.setuptools.package-data]
+pyJHTDB = [
+    "data/channel_xgrid.npy",
+    "data/channel_ygrid.npy",
+    "data/channel_zgrid.npy",
+    "data/channel5200_ygrid.npy",
+    "data/transition_bl_ygrid.npy",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "pyJHTDB._version.__version__"}

@@ -2,8 +2,10 @@
 build/
 dist/
 pyJHTDB.egg-info/
-MANIFEST.in
+# MANIFEST.in
 .tox
+
+.venv/
 
 # turblib stuff
 ##turblib/
